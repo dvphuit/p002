@@ -1,5 +1,11 @@
+import 'package:get/get.dart';
+
+import '../core/theme/theme_service.dart';
+import '../core/theme/theme_service.dart';
+
 class DependenciesInjection {
   static Future<void> init() async {
+    Get.put<ThemeService>(ThemeService());
     // Get.put<Dio>(Dio(BaseOptions(
     //   baseUrl: baseUrl,
     //   followRedirects: false,

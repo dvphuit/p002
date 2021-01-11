@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ku_app/core/widgets/dark_light_switch.dart';
 
 import 'core/theme/theme.dart';
 import 'core/theme/theme_service.dart';
+import 'di/dependencies_injection.dart';
+import 'routes/app_pages.dart';
 
-void main() {
+void main() async {
+  await DependenciesInjection.init();
   runApp(MyApp());
 }
 
@@ -15,8 +19,9 @@ class MyApp extends StatelessWidget {
       title: 'KuApp',
       theme: Themes.light,
       darkTheme: Themes.dark,
-      themeMode: ThemeService().theme,
-      home: MyHomePage(),
+      themeMode: Get.find<ThemeService>().theme,
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.pages,
     );
   }
 }
@@ -28,17 +33,7 @@ class MyHomePage extends StatelessWidget {
       backgroundColor: context.theme.backgroundColor,
       body: Center(
         child: Column(
-          children: [
-            RaisedButton(
-              onPressed: () {
-                if (Get.isDarkMode)
-                  Get.changeThemeMode(ThemeMode.light);
-                else
-                  Get.changeThemeMode(ThemeMode.dark);
-              },
-              child: Text("dark mode"),
-            )
-          ],
+          children: [DarkLightSwitch()],
         ),
       ),
     );

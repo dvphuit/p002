@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ku_app/core/data/models/base_model.dart';
 
+import '../data/models/base_model.dart';
+
 const SCROLL_REMAINING_OFFSET = 300;
 const PROGRESS_HEIGHT = 200.0;
 
@@ -50,17 +52,19 @@ class PostLisViewListener {
   }
 }
 
+typedef LazyItem<T extends BaseModel> = Widget Function(T item);
+
 class LazyListView<T extends BaseModel> extends StatefulWidget {
   final List<T> list;
-  final Widget child;
   final Function(int page) onLoadData;
   final PostLisViewListener notifier;
+  final LazyItem<T> lazyItem;
 
   LazyListView({
     Key key,
     @required this.list,
-    @required this.child,
     @required this.onLoadData,
+    @required this.lazyItem,
     this.notifier,
   }) : super(key: key);
 
@@ -171,7 +175,7 @@ class _State extends State<LazyListView> {
             return _loading();
           } else {
             _addScrollListener();
-            return Container();
+            return widget.lazyItem(widget.list[index]);
           }
         },
       ),
