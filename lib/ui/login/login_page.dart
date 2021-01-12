@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ContactPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Contact'),
+          title: Text('About'),
         ),
         body: Center(
-          child: Text('Contact'),
+          child: Text('About'),
         ),
       ),
     );
