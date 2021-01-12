@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ku_app/core/widgets/dark_light_switch.dart';
 
+import 'app/di/dependencies_injection.dart';
+import 'app/routes/app_pages.dart';
 import 'core/theme/theme.dart';
 import 'core/theme/theme_service.dart';
-import 'di/dependencies_injection.dart';
-import 'routes/app_pages.dart';
 
 void main() async {
   await DependenciesInjection.init();
@@ -22,20 +21,6 @@ class MyApp extends StatelessWidget {
       themeMode: Get.find<ThemeService>().theme,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.pages,
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.theme.backgroundColor,
-      body: Center(
-        child: Column(
-          children: [DarkLightSwitch()],
-        ),
-      ),
     );
   }
 }

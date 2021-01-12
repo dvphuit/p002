@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-
-import '../core/theme/theme_service.dart';
-import '../core/theme/theme_service.dart';
+import 'package:ku_app/core/theme/theme_service.dart';
 
 class DependenciesInjection {
   static Future<void> init() async {

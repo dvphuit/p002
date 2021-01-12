@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ku_app/config/consts.dart';
+import 'package:ku_app/app/config/consts.dart';
 
 import 'home_controller.dart';
 

@@ -10,11 +10,11 @@ class BaseResponse<T extends BaseModel> {
   factory BaseResponse.fromJson(Map<String, dynamic> json) => BaseResponse(
       success: json["success"],
       message: json["message"] == null ? 'Unknown message' : json["message"],
-      data: json['data'] == null ? null : _objAs<T>(json['data']));
+      data: json['app.data'] == null ? null : _objAs<T>(json['app.data']));
 
   @override
   String toString() {
-    return '{success: $success, message: $message, data: $data}';
+    return '{success: $success, message: $message, app.data: $data}';
   }
 }
 

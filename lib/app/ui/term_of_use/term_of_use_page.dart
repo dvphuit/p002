@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ku_app/config/consts.dart';
-import 'package:ku_app/routes/app_routes.dart';
+import 'package:ku_app/app/config/consts.dart';
+import 'package:ku_app/app/routes/app_routes.dart';
 
 class TermOfUsePage extends StatelessWidget {
   @override

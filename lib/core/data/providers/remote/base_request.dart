@@ -33,9 +33,7 @@ abstract class BaseRequest extends GetConnect {
     final Response res = await _getResponse();
     print("Response of request: $res");
     try {
-      var result = BaseResponse.fromJson(
-        res.body,
-      );
+      var result = BaseResponse.fromJson(res.body);
       if (result.success)
         onSuccess?.call(result.data);
       else
@@ -63,6 +61,4 @@ abstract class BaseRequest extends GetConnect {
       });
     }
   }
-
-  Future<Response> getCases(String path) => get(path);
 }
