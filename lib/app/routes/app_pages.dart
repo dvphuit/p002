@@ -3,6 +3,8 @@ import 'package:ku_app/app/ui/home/about/about_page.dart';
 import 'package:ku_app/app/ui/home/contact/contact_page.dart';
 import 'package:ku_app/app/ui/home/home_binding.dart';
 import 'package:ku_app/app/ui/home/home_page.dart';
+import 'package:ku_app/app/ui/home/post/list_post_binding.dart';
+import 'package:ku_app/app/ui/home/post/list_post_page.dart';
 import 'package:ku_app/app/ui/home/promo/promo_page.dart';
 import 'package:ku_app/app/ui/home/support/support_page.dart';
 import 'package:ku_app/app/ui/login/login_page.dart';
@@ -20,11 +22,12 @@ class AppPages {
     GetPage(
       name: Routes.SPLASH,
       page: () => SplashPage(),
+      transition: Transition.fade,
     ),
     GetPage(
       name: Routes.TERM_OF_USE,
       page: () => TermOfUsePage(),
-      transition: Transition.cupertino,
+      transition: Transition.fade,
     ),
     GetPage(
       name: Routes.HOME,
@@ -50,6 +53,12 @@ class AppPages {
         GetPage(
           name: Routes.CONTACT,
           page: () => ContactPage(),
+          transition: Transition.cupertino,
+        ),
+        GetPage(
+          name: Routes.LIST_POST,
+          page: () => ListPostPage(),
+          binding: ListPostBinding(),
           transition: Transition.cupertino,
         ),
       ],

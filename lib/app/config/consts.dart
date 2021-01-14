@@ -8,3 +8,7 @@ class AppText {
   static const String About = "GIỚI THIỆU";
   static const String Contact = "LIÊN HỆ";
 }
+
+class Api {
+  static const baseUrl = 'http://batdongsan.laptrinhdidong.com.vn/API/Website.php';
+}

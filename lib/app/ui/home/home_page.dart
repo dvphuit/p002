@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ku_app/app/config/consts.dart';
+import 'package:ku_app/app/data/models/menu_model.dart';
 
 import 'home_controller.dart';
 
@@ -11,21 +13,61 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: drawer,
         appBar: AppBar(
           title: const Text(AppText.Home),
         ),
         body: CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: <Widget>[
             headers,
             SliverPadding(
               padding: const EdgeInsets.only(top: 8),
             ),
-            mainMenus,
+            GetBuilder<HomeController>(builder: (_) => mainMenus),
           ],
-        ).paddingSymmetric(horizontal: spacing, vertical: 8),
+        ).paddingSymmetric(horizontal: spacing, vertical: spacing),
       ),
     );
   }
+
+  Widget get drawer => Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  colorFilter:
+                      new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+                  image: CachedNetworkImageProvider(
+                      'https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg'),
+                ),
+              ),
+              child: Text(""),
+            ),
+            ListTile(
+              title: Text("Giới thiệu"),
+              onTap: () {
+                Get.back();
+              },
+            ),
+            ListTile(
+              title: Text("Liên hệ"),
+              onTap: () {
+                Get.back();
+              },
+            ),
+            ListTile(
+              title: Text("Điều khoản sử dụng"),
+              onTap: () {
+                Get.back();
+              },
+            ),
+          ],
+        ),
+      );
 
   Widget get headers => SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -49,36 +91,69 @@ class HomePage extends GetView<HomeController> {
           crossAxisSpacing: spacing,
         ),
         delegate: SliverChildBuilderDelegate(
-          (context, index) => _item(controller.mainMenus[index]),
+          (context, index) => _mainItem(controller.mainMenus[index]),
           childCount: controller.mainMenus.length,
         ),
       );
 
-  Widget _item(Menu menu) => Material(
-        color: Colors.transparent,
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-            color: Colors.white,
-          ),
+  Widget _item(Menu menu) => Container(
+        margin: EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          boxShadow: [BoxShadow(color: Colors.grey, offset: Offset.zero, blurRadius: 5.0)],
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.white,
+        ),
+        child: Material(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.white,
           child: InkWell(
-            splashColor: Colors.blue,
-            onTap: () => controller.takeAction(menu.route),
-            child: Wrap(
-              direction: Axis.vertical,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              alignment: WrapAlignment.center,
-              runAlignment: WrapAlignment.center,
-              spacing: 16,
-              children: [
-                if (menu.icon != null)
-                  Icon(
-                    menu.icon,
-                    size: 60,
-                    color: Colors.blue,
-                  ),
-                Text(menu.title),
-              ],
+            borderRadius: BorderRadius.circular(8.0),
+            onTap: () {},
+            splashColor: Colors.white12,
+            child: Center(child: Text(menu.title)),
+          ),
+        ),
+      );
+
+  Widget _mainItem(MenuModel menu) => Container(
+        decoration: BoxDecoration(
+          color: Colors.black87,
+          boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 2)],
+          borderRadius: BorderRadius.circular(8),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+            image: CachedNetworkImageProvider(menu.urlHinh),
+          ),
+        ),
+        child: Material(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(8.0),
+            onTap: () => controller.toPosts(menu.tieuDe, menu.tieuDeKd),
+            splashColor: Colors.white12,
+            child: Center(
+              child: Text(
+                menu.tieuDe,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 2.0,
+                      color: Colors.black87,
+                    ),
+                    Shadow(
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 5.0,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class Themes {
   static final light = ThemeData.light().copyWith(
-    backgroundColor: Colors.grey.shade50,
-    scaffoldBackgroundColor: Colors.grey.shade300,
+    backgroundColor: Colors.white,
     buttonColor: Colors.blue,
   );
   static final dark = ThemeData.dark().copyWith(

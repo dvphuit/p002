@@ -10,4 +10,5 @@ abstract class Routes {
   static const ABOUT = '/about';
   static const CONTACT = '/contact';
   static const WEB = '/web';
+  static const LIST_POST = '/posts';
 }

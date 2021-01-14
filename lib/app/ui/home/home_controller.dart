@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ku_app/app/config/consts.dart';
+import 'package:ku_app/app/data/models/menu_model.dart';
+import 'package:ku_app/app/data/repositories/menu_repo.dart';
 import 'package:ku_app/app/routes/app_routes.dart';
 
 enum HomeRoute { LOGIN, REGISTER, SUPPORT, ABOUT, PROMO, CONTACT }
@@ -33,17 +35,27 @@ class Menu {
 }
 
 class HomeController extends GetxController {
+  final _repo = MenuRepo();
+  List<MenuModel> mainMenus = [];
+
+  @override
+  void onReady() async {
+    super.onReady();
+    mainMenus = await _repo.getMenu();
+    update();
+  }
+
   final headers = [
     Menu(title: AppText.Login, route: HomeRoute.LOGIN),
     Menu(title: AppText.Register, route: HomeRoute.REGISTER),
   ];
 
-  final mainMenus = [
-    Menu(title: AppText.Support, route: HomeRoute.SUPPORT, icon: Icons.support_agent),
-    Menu(title: AppText.Promo, route: HomeRoute.PROMO, icon: Icons.explore),
-    Menu(title: AppText.About, route: HomeRoute.ABOUT, icon: Icons.info_outline),
-    Menu(title: AppText.Contact, route: HomeRoute.CONTACT, icon: Icons.contact_mail_outlined),
-  ];
+  // final mainMenus = [
+  //   Menu(title: AppText.Support, route: HomeRoute.SUPPORT, icon: Icons.support_agent),
+  //   Menu(title: AppText.Promo, route: HomeRoute.PROMO, icon: Icons.explore),
+  //   Menu(title: AppText.About, route: HomeRoute.ABOUT, icon: Icons.info_outline),
+  //   Menu(title: AppText.Contact, route: HomeRoute.CONTACT, icon: Icons.contact_mail_outlined),
+  // ];
 
   void takeAction(HomeRoute action) {
     switch (action) {
@@ -106,5 +118,10 @@ class HomeController extends GetxController {
 
   void toWeb(String title, String url) {
     Get.toNamed(Routes.WEB, arguments: {'title': title, 'url': url});
+  }
+
+  void toPosts(String title, String tieuDeKD) {
+    Get.toNamed(Get.currentRoute + Routes.LIST_POST,
+        arguments: {'title': title, 'tieuDeKD': tieuDeKD});
   }
 }

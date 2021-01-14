@@ -14,8 +14,8 @@ enum Method {
 abstract class BaseRequest extends GetConnect {
   @override
   void onInit() {
-    httpClient.baseUrl = 'https://api.covid19api.com';
-    httpClient.maxAuthRetries = 3;
+    baseUrl = 'http://batdongsan.laptrinhdidong.com.vn/API/Website.php';
+    maxAuthRetries = 3;
   }
 
   String get path;
@@ -31,7 +31,7 @@ abstract class BaseRequest extends GetConnect {
     @required OnError onError,
   }) async {
     final Response res = await _getResponse();
-    print("Response of request: $res");
+    print("Response of request: ${res.body}");
     try {
       var result = BaseResponse.fromJson(res.body);
       if (result.success)
@@ -48,7 +48,9 @@ abstract class BaseRequest extends GetConnect {
     try {
       switch (method) {
         case Method.GET:
-          return await get(path, query: params);
+          // print('base url ${baseUrl} -- ${httpClient.baseUrl}');
+          return await get('http://batdongsan.laptrinhdidong.com.vn/API/Website.php',
+              query: params);
         case Method.POST:
           return await post(path, params);
         default:
