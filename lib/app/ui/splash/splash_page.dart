@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ku_app/app/routes/app_routes.dart';
 
 class SplashPage extends StatelessWidget {
@@ -9,19 +10,21 @@ class SplashPage extends StatelessWidget {
       body: FutureBuilder<bool>(
         future: _gotoTerm(), // async work
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting)
-            return Center(child: Text("Splash"));
-          else
-            return Container();
+          return Container(
+            color: Colors.white,
+            width: double.infinity,
+            height: double.infinity,
+          );
         },
       ),
     );
   }
 
   Future<bool> _gotoTerm() async {
-    await Future.delayed(Duration(microseconds: 2500));
-    print('go to term of use');
-    Get.offNamed(Routes.TERM_OF_USE);
+    await Future.delayed(Duration(microseconds: 1000));
+    final box = GetStorage();
+    final isAcceptedTerm = box.read('is_accepted') ?? false;
+    Get.offNamed(isAcceptedTerm ? Routes.HOME : Routes.TERM_OF_USE);
     return true;
   }
 }

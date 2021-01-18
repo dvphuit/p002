@@ -51,25 +51,33 @@ class ListPostPage extends GetView<ListPostController> {
           image: CachedNetworkImageProvider(post.urlHinh),
         ),
       ),
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: Text(
-          '${post.tieuDe}',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white, shadows: [
-            Shadow(
-              offset: Offset.zero,
-              color: Colors.black,
-              blurRadius: 2,
+      child: Material(
+        borderRadius: BorderRadius.circular(8.0),
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8.0),
+          onTap: () => controller.gotoDetail(post),
+          splashColor: Colors.white12,
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Text(
+              '${post.tieuDe}',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white, shadows: [
+                Shadow(
+                  offset: Offset.zero,
+                  color: Colors.black,
+                  blurRadius: 2,
+                ),
+                Shadow(
+                  offset: Offset.zero,
+                  color: Colors.black,
+                  blurRadius: 4,
+                )
+              ]),
             ),
-            Shadow(
-              offset: Offset.zero,
-              color: Colors.black,
-              blurRadius: 4,
-            )
-          ]),
+          ).paddingAll(8),
         ),
-      ).paddingAll(8),
+      ),
     );
   }
 }

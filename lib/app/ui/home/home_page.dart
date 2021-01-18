@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ku_app/app/config/consts.dart';
 import 'package:ku_app/app/data/models/menu_model.dart';
+import 'package:ku_app/app/routes/app_routes.dart';
 
 import 'home_controller.dart';
 
@@ -26,7 +29,9 @@ class HomePage extends GetView<HomeController> {
             ),
             GetBuilder<HomeController>(builder: (_) => mainMenus),
           ],
-        ).paddingSymmetric(horizontal: spacing, vertical: spacing),
+        ).paddingSymmetric(
+          horizontal: spacing,
+        ),
       ),
     );
   }
@@ -39,8 +44,7 @@ class HomePage extends GetView<HomeController> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  colorFilter:
-                      new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
                   image: CachedNetworkImageProvider(
                       'https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg'),
                 ),
@@ -56,25 +60,48 @@ class HomePage extends GetView<HomeController> {
             ListTile(
               title: Text("Liên hệ"),
               onTap: () {
-                Get.back();
+                _contactDialog();
               },
             ),
             ListTile(
               title: Text("Điều khoản sử dụng"),
               onTap: () {
-                Get.back();
+                Get.toNamed(Routes.TERM_OF_USE, arguments: 'view');
               },
             ),
           ],
         ),
       );
 
+  _contactDialog() {
+    Get.defaultDialog(
+      title: "Liên hệ",
+      content: RichText(
+          textAlign: TextAlign.center,
+          text: new TextSpan(
+            text: 'Ms Châu\n',
+            style: TextStyle(color: Colors.black),
+            children: <TextSpan>[
+              new TextSpan(
+                text: '0901 193 193\n',
+                style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+              ),
+              new TextSpan(
+                text: 'Số 2 Trương Quốc Dung, Phường 8, Phú Nhuận, HCM',
+                style: new TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
+              ),
+            ],
+          )),
+      textConfirm: "Đóng",
+      onConfirm: () => Get.back(),
+      confirmTextColor: Colors.white,
+      radius: 5,
+    );
+  }
+
   Widget get headers => SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 3,
-            mainAxisSpacing: spacing,
-            crossAxisSpacing: spacing),
+            crossAxisCount: 2, childAspectRatio: 3, mainAxisSpacing: spacing, crossAxisSpacing: spacing),
         delegate: SliverChildBuilderDelegate(
           (context, index) {
             return _item(controller.headers[index]);

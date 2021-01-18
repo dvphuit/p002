@@ -10,5 +10,7 @@ class AppText {
 }
 
 class Api {
-  static const baseUrl = 'http://batdongsan.laptrinhdidong.com.vn/API/Website.php';
+  static const baseUrl = 'https://padvn.co/API/Website.php';
+
+  static String getDetail(String tieuDeKD) => 'https://padvn.co/API/trangchitiet.php?TieuDeKD=$tieuDeKD';
 }
