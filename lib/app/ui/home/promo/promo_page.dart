@@ -9,18 +9,6 @@ final script = '''
   var x3 = document.getElementsByClassName('btn_AD');
   x3[0].parentNode.removeChild(x3[0]);
   document.getElementById('AgentID').setAttribute('readonly', 'true');
-  
-''';
-
-final script2 = '''
-  // window.alert = function (str){
-  //             Alert.postMessage(str);
-  //           }
-    function test(){
-      alert('Test alert Message');
-      return 'show alert';
-    }
-    test();
 ''';
 
 class PromoPage extends GetView<PromoController> {
@@ -44,18 +32,8 @@ class PromoPage extends GetView<PromoController> {
       onPageStarted: (url) {},
       onPageFinished: (url) async {
         wvController?.evaluateJavascript(script)?.then((value) => print('done'));
-        await Future.delayed(Duration(seconds: 2));
-        wvController?.evaluateJavascript(script2)?.then((value) => print('$value'));
       },
       onWebResourceError: (WebResourceError err) {},
-      javascriptChannels: Set.from([
-        JavascriptChannel(
-          name: 'Alert',
-          onMessageReceived: (JavascriptMessage message) {
-            print(message.message);
-          },
-        )
-      ]),
     );
   }
 }

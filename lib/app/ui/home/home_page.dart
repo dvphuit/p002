@@ -15,21 +15,19 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        drawer: drawer,
-        body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: <Widget>[
-            // headers,
-            SliverPadding(
-              padding: const EdgeInsets.only(top: 8),
-            ),
-            GetBuilder<HomeController>(builder: (_) => mainMenus),
-          ],
-        ).paddingSymmetric(
-          horizontal: spacing,
-        ),
+    return Scaffold(
+      drawer: drawer,
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: <Widget>[
+          // headers,
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 8),
+          ),
+          GetBuilder<HomeController>(builder: (_) => mainMenus),
+        ],
+      ).paddingSymmetric(
+        horizontal: spacing,
       ),
     );
   }

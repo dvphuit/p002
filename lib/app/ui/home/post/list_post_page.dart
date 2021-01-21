@@ -8,17 +8,15 @@ class ListPostPage extends GetView<ListPostController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ListPostController>(
-        builder: (_) => SafeArea(
-              child: Scaffold(
-                appBar: AppBar(
-                  title: Text(controller.title),
-                ),
-                body: controller.posts == null
-                    ? Center(child: CircularProgressIndicator())
-                    : controller.posts.isEmpty
-                        ? emptyView
-                        : listViewPost,
+        builder: (_) => Scaffold(
+              appBar: AppBar(
+                title: Text(controller.title),
               ),
+              body: controller.posts == null
+                  ? Center(child: CircularProgressIndicator())
+                  : controller.posts.isEmpty
+                      ? emptyView
+                      : listViewPost,
             ));
   }
 
@@ -62,18 +60,22 @@ class ListPostPage extends GetView<ListPostController> {
             alignment: Alignment.bottomLeft,
             child: Text(
               '${post.tieuDe}',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white, shadows: [
-                Shadow(
-                  offset: Offset.zero,
-                  color: Colors.black,
-                  blurRadius: 2,
-                ),
-                Shadow(
-                  offset: Offset.zero,
-                  color: Colors.black,
-                  blurRadius: 4,
-                )
-              ]),
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: Offset.zero,
+                      color: Colors.black,
+                      blurRadius: 2,
+                    ),
+                    Shadow(
+                      offset: Offset.zero,
+                      color: Colors.black,
+                      blurRadius: 4,
+                    )
+                  ]),
             ),
           ).paddingAll(8),
         ),

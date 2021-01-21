@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ku_app/app/ui/main/main_controller.dart';
 import 'package:ku_app/app/ui/widgets/bottom_nav.dart';
-
-import 'main_controller.dart';
-import 'nav_page.dart';
 
 class MainPage extends GetWidget<MainController> {
   MainPage({Key key}) : super(key: key);
@@ -20,25 +18,76 @@ class MainPage extends GetWidget<MainController> {
         automaticallyImplyLeading: false,
         actions: [],
       ),
-      // body: Obx(
-      //   () => IndexedStack(
-      //     children: controller.menuPages,
-      //     index: controller.navMenuIndex(),
-      //   ),
-      // ),
-      body: Navigator(
-        key: Get.nestedKey(1),
-        initialRoute: navPages.first.route,
-        onGenerateRoute: (settings) {
-          return getNavRoutes(settings.name);
-        },
+      body: Obx(
+        () => IndexedStack(
+          children: controller.menuPages,
+          index: controller.navMenuIndex(),
+        ),
       ),
       bottomNavigationBar: BottomNav(
-        titles: navPages.map((e) => e.title).toList(),
-        onNavClicked: (index) {
-          controller.onNavClick(index);
-        },
+        titles: screensData.map((e) => e.name).toList(),
+        onNavClicked: controller.navMenuIndex,
       ),
     );
   }
 }
+//
+// class PageColorList extends StatelessWidget {
+//   final ScreenModel model;
+//
+//   const PageColorList({Key key, this.model}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text(model.name), backgroundColor: model.colors),
+//       body: ListView.builder(
+//         itemBuilder: (_, idx) {
+//           final shade = model.shades[idx];
+//           return Container(
+//             color: model.colors[shade],
+//             child: ListTile(
+//               title: Text(
+//                 'shade [$shade]',
+//                 style: Get.textTheme.bodyText2
+//                     .copyWith(color: Colors.white, backgroundColor: Colors.black26),
+//               ),
+//               trailing: Icon(Icons.chevron_right),
+//               onTap: () => Get.find<MainController>().openDetails(shade),
+//             ),
+//           );
+//         },
+//         itemCount: model.shades.length,
+//       ),
+//     );
+//   }
+// }
+//
+// /// details of colors.
+// class PageColorDetails extends StatelessWidget {
+//   final String title;
+//   final int shade;
+//   final MaterialColor color;
+//
+//   const PageColorDetails({Key key, this.title, this.shade, this.color}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(title),
+//         backgroundColor: color,
+//       ),
+//       backgroundColor: color[shade],
+//       body: Center(
+//         child: Text(
+//           '$title [$shade]',
+//           style: Get.textTheme.headline3.copyWith(
+//             color: Colors.white,
+//             backgroundColor: Colors.black45,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
