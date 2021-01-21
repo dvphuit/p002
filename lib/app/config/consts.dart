@@ -1,3 +1,8 @@
+import 'package:ku_app/app/data/models/menu_model.dart';
+
+var ku_mode = false;
+List<MenuModel> mainMenus = [];
+
 class AppText {
   static const String Term_of_use = "Điều khoản sử dụng";
   static const String Home = "Home";

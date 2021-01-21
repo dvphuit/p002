@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ku_app/app/config/consts.dart';
+import 'package:ku_app/app/data/models/menu_model.dart';
+import 'package:ku_app/app/data/repositories/menu_repo.dart';
 import 'package:ku_app/app/routes/app_routes.dart';
 
 import 'nav_page.dart';
@@ -9,18 +12,20 @@ class ScreenModel {
   final String name;
   final String route;
   final int navKey;
+
   ScreenModel({this.name, this.route, this.navKey});
 }
 
 /// screens models list
 final screensData = <ScreenModel>[
-  ScreenModel(name: 'TOOL', route: Routes.HOME, navKey: 1),
-  ScreenModel(name: 'HOME', route: Routes.PROMO, navKey: 2),
-  ScreenModel(name: 'SUPPORT', route: Routes.SUPPORT, navKey: 3),
+  ScreenModel(name: ku_mode ? 'TOOL' : 'Trang chủ', route: Routes.HOME, navKey: 1),
+  ScreenModel(name: ku_mode ? 'HOME' : 'Tin tức', route: Routes.PROMO, navKey: 2),
+  ScreenModel(name: ku_mode ? 'HỖ TRỢ' : 'Hỗ trợ', route: Routes.SUPPORT, navKey: 3),
 ];
 
 class MainController extends GetxController {
-  var title = navPages[0].title.obs;
+  var title = screensData[0].name.obs;
+
 //#############################################
 
   final navMenuIndex = 0.obs;
@@ -37,7 +42,9 @@ class MainController extends GetxController {
 /// sub navigators.
 class _TabNav extends GetView<MainController> {
   final ScreenModel model;
+
   _TabNav(this.model);
+
   @override
   Widget build(BuildContext context) {
     return Navigator(

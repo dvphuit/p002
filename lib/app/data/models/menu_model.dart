@@ -11,22 +11,23 @@ class MenuResponse extends BaseModel {
     this.description,
     this.ata,
     this.data,
+    this.release_mode = false,
   });
 
   String status;
   int resultCode;
   String description;
   dynamic ata;
+  bool release_mode;
   List<MenuModel> data;
 
   factory MenuResponse.fromJson(Map<String, dynamic> json) => MenuResponse(
         status: json["status"] == null ? null : json["status"],
         resultCode: json["resultCode"] == null ? null : json["resultCode"],
         description: json["description"] == null ? null : json["description"],
+        release_mode: json["release_mode"] == null ? null : json["release_mode"],
         ata: json["ata"],
-        data: json["data"] == null
-            ? null
-            : List<MenuModel>.from(json["data"].map((x) => MenuModel.fromJson(x))),
+        data: json["data"] == null ? null : List<MenuModel>.from(json["data"].map((x) => MenuModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {

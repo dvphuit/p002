@@ -32,6 +32,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+  web_view_plugin:
+    path: /Users/fudesu/Development/apps/web_view_plugin
 
 flutter_icons:
   android: "launcher_icon"

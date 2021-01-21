@@ -20,7 +20,7 @@ class BottomNav extends StatelessWidget {
         color: Colors.blue,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: titles
               .asMap()
               .map((index, value) => MapEntry(index, _item(index, selectedIndex == index)))
@@ -35,6 +35,7 @@ class BottomNav extends StatelessWidget {
     return InkWell(
       child: Container(
         height: 50,
+        width: Get.width / titles.length,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

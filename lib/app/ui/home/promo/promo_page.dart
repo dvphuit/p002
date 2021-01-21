@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:webview_flutter/platform_interface.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:ku_app/app/config/consts.dart';
+import 'package:web_view_plugin/web_view_plugin.dart';
 
 import 'promo_controller.dart';
 
@@ -16,24 +16,21 @@ class PromoPage extends GetView<PromoController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: _web(),
+        body: ku_mode
+            ? _web()
+            : Container(
+                color: Colors.red,
+              ),
       ),
     );
   }
 
   _web() {
-    WebViewController wvController;
-    return WebView(
-      javascriptMode: JavascriptMode.unrestricted,
-      initialUrl: 'https://ff3357.ku11.net/',
-      onWebViewCreated: (WebViewController webViewController) {
-        wvController = webViewController;
+    return WebViewPlugin(
+      url: 'https://ff3357.ku11.net/',
+      onPageFinished: (WebViewController webController) async {
+        webController.evalJs(script: script);
       },
-      onPageStarted: (url) {},
-      onPageFinished: (url) async {
-        wvController?.evaluateJavascript(script)?.then((value) => print('done'));
-      },
-      onWebResourceError: (WebResourceError err) {},
     );
   }
 }

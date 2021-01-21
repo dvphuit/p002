@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ku_app/app/config/consts.dart';
 import 'package:ku_app/app/ui/main/main_controller.dart';
 import 'package:ku_app/app/ui/widgets/bottom_nav.dart';
 
@@ -26,7 +27,10 @@ class MainPage extends GetWidget<MainController> {
       ),
       bottomNavigationBar: BottomNav(
         titles: screensData.map((e) => e.name).toList(),
-        onNavClicked: controller.navMenuIndex,
+        onNavClicked: (index) {
+          controller.navMenuIndex.value = index;
+          controller.title.value = screensData[index].name;
+        },
       ),
     );
   }

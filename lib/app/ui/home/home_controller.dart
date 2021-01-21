@@ -35,16 +35,6 @@ class Menu {
 }
 
 class HomeController extends GetxController {
-  final _repo = MenuRepo();
-  List<MenuModel> mainMenus = [];
-
-  @override
-  void onReady() async {
-    super.onReady();
-    mainMenus = await _repo.getMenu();
-    update();
-  }
-
   final headers = [
     Menu(title: AppText.Login, route: HomeRoute.LOGIN),
     Menu(title: AppText.Register, route: HomeRoute.REGISTER),
