@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ku_app/app/config/consts.dart';
 import 'package:ku_app/app/routes/app_routes.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:web_view_plugin/web_view_plugin.dart';
 
 const policy = '''
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,7 @@ class TermOfUsePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = Get.arguments;
-    if (GetPlatform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+    // if (GetPlatform.isAndroid) WebView.platform = SurfaceAndroidWebView();
     return Scaffold(
       appBar: AppBar(
         title: Text(AppText.Term_of_use),
@@ -49,15 +49,16 @@ class TermOfUsePage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: WebView(
-              initialUrl: 'about:blank',
-              onWebViewCreated: (WebViewController webViewController) {
-                webViewController.loadUrl(Uri.dataFromString(
-                  policy,
-                  mimeType: 'text/html',
-                  encoding: Encoding.getByName('utf-8'),
-                ).toString());
-              },
+            child: WebViewPlugin(
+              htmlData: policy,
+              // initialUrl: 'about:blank',
+              // onWebViewCreated: (WebViewController webViewController) {
+              //   webViewController.loadUrl(Uri.dataFromString(
+              //     policy,
+              //     mimeType: 'text/html',
+              //     encoding: Encoding.getByName('utf-8'),
+              //   ).toString());
+              // },
             ),
           ),
           args == 'view' ? Container() : AcceptButton()

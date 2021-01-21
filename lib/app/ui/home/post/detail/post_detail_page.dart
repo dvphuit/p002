@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:ku_app/app/config/consts.dart';
 import 'package:ku_app/app/data/models/post_model.dart';
 import 'package:ku_app/app/ui/home/post/detail/post_detail_controller.dart';
-import 'package:webview_flutter/platform_interface.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:web_view_plugin/web_view_plugin.dart';
 
 class PostDetailPage extends GetView<PostDetailController> {
   @override
@@ -14,13 +13,8 @@ class PostDetailPage extends GetView<PostDetailController> {
       appBar: AppBar(
         title: Text(args.tieuDe),
       ),
-      body: WebView(
-        javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: Api.getDetail(args.tieuDeKd),
-        onWebViewCreated: (WebViewController webViewController) {},
-        onPageStarted: (url) {},
-        onPageFinished: (url) {},
-        onWebResourceError: (WebResourceError err) {},
+      body: WebViewPlugin(
+        url: Api.getDetail(args.tieuDeKd),
       ),
     );
   }
