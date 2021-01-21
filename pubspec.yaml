@@ -33,7 +33,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   web_view_plugin:
-    path: ./web_view_plugin
+    git:
+      url: https://github.com/dvphuit/web_view_plugin.git
+      ref: main
+
 
 flutter_icons:
   android: "launcher_icon"
