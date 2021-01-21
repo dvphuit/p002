@@ -99,7 +99,7 @@ class _AcceptButtonState extends State<AcceptButton> {
                   final box = GetStorage();
                   await box.write('is_accepted', true);
                   final read = await box.read('is_accepted');
-                  Get.offNamed(Routes.HOME);
+                  Get.offNamed(Routes.MAIN);
                 }
               : null,
           child: Text('Tiếp tục'),

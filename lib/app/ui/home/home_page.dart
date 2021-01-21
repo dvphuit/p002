@@ -3,9 +3,10 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ku_app/app/config/consts.dart';
 import 'package:ku_app/app/data/models/menu_model.dart';
 import 'package:ku_app/app/routes/app_routes.dart';
+import 'package:webview_flutter/platform_interface.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'home_controller.dart';
 
@@ -17,13 +18,10 @@ class HomePage extends GetView<HomeController> {
     return SafeArea(
       child: Scaffold(
         drawer: drawer,
-        appBar: AppBar(
-          title: const Text(AppText.Home),
-        ),
         body: CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: <Widget>[
-            headers,
+            // headers,
             SliverPadding(
               padding: const EdgeInsets.only(top: 8),
             ),
@@ -36,6 +34,17 @@ class HomePage extends GetView<HomeController> {
     );
   }
 
+  _web() {
+    return WebView(
+      javascriptMode: JavascriptMode.unrestricted,
+      initialUrl: 'https://ff3357.ku11.net/',
+      onWebViewCreated: (WebViewController webViewController) {},
+      onPageStarted: (url) {},
+      onPageFinished: (url) {},
+      onWebResourceError: (WebResourceError err) {},
+    );
+  }
+
   Widget get drawer => Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -44,7 +53,8 @@ class HomePage extends GetView<HomeController> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+                  colorFilter:
+                      new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
                   image: CachedNetworkImageProvider(
                       'https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg'),
                 ),
@@ -101,7 +111,10 @@ class HomePage extends GetView<HomeController> {
 
   Widget get headers => SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: 3, mainAxisSpacing: spacing, crossAxisSpacing: spacing),
+            crossAxisCount: 2,
+            childAspectRatio: 3,
+            mainAxisSpacing: spacing,
+            crossAxisSpacing: spacing),
         delegate: SliverChildBuilderDelegate(
           (context, index) {
             return _item(controller.headers[index]);

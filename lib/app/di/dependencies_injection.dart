@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ku_app/core/theme/theme_service.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class DependenciesInjection {
   static Future<void> init() async {
     Get.put<ThemeService>(ThemeService());
     await GetStorage.init();
+    if (GetPlatform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+
     // Get.put<Dio>(Dio(BaseOptions(
     //   baseUrl: baseUrl,
     //   followRedirects: false,

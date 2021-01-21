@@ -24,7 +24,7 @@ class SplashPage extends StatelessWidget {
     await Future.delayed(Duration(microseconds: 1000));
     final box = GetStorage();
     final isAcceptedTerm = box.read('is_accepted') ?? false;
-    Get.offNamed(isAcceptedTerm ? Routes.HOME : Routes.TERM_OF_USE);
+    Get.offNamed(isAcceptedTerm ? Routes.MAIN : Routes.TERM_OF_USE);
     return true;
   }
 }

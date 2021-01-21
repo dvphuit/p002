@@ -1,14 +1,14 @@
 import 'package:get/get.dart';
 import 'package:ku_app/app/ui/home/about/about_page.dart';
 import 'package:ku_app/app/ui/home/contact/contact_page.dart';
-import 'package:ku_app/app/ui/home/home_binding.dart';
-import 'package:ku_app/app/ui/home/home_page.dart';
 import 'package:ku_app/app/ui/home/post/detail/post_detail_page.dart';
 import 'package:ku_app/app/ui/home/post/list_post_binding.dart';
 import 'package:ku_app/app/ui/home/post/list_post_page.dart';
 import 'package:ku_app/app/ui/home/promo/promo_page.dart';
 import 'package:ku_app/app/ui/home/support/support_page.dart';
 import 'package:ku_app/app/ui/login/login_page.dart';
+import 'package:ku_app/app/ui/main/main_binding.dart';
+import 'package:ku_app/app/ui/main/main_page.dart';
 import 'package:ku_app/app/ui/register/register_page.dart';
 import 'package:ku_app/app/ui/splash/splash_page.dart';
 import 'package:ku_app/app/ui/term_of_use/term_of_use_page.dart';
@@ -31,9 +31,9 @@ class AppPages {
       transition: Transition.cupertino,
     ),
     GetPage(
-      name: Routes.HOME,
-      binding: HomeBinding(),
-      page: () => HomePage(),
+      name: Routes.MAIN,
+      binding: MainBinding(),
+      page: () => MainPage(),
       transition: Transition.cupertino,
       children: [
         GetPage(
@@ -56,20 +56,20 @@ class AppPages {
           page: () => ContactPage(),
           transition: Transition.cupertino,
         ),
-        GetPage(
-            name: Routes.LIST_POST,
-            page: () => ListPostPage(),
-            binding: ListPostBinding(),
-            transition: Transition.cupertino,
-            children: [
-              GetPage(
-                name: Routes.POST_DETAIL,
-                page: () => PostDetailPage(),
-                transition: Transition.cupertino,
-              )
-            ]),
       ],
     ),
+    GetPage(
+        name: Routes.LIST_POST,
+        page: () => ListPostPage(),
+        binding: ListPostBinding(),
+        transition: Transition.cupertino,
+        children: [
+          GetPage(
+            name: Routes.POST_DETAIL,
+            page: () => PostDetailPage(),
+            transition: Transition.cupertino,
+          )
+        ]),
     GetPage(
       name: Routes.LOGIN,
       page: () => LoginPage(),

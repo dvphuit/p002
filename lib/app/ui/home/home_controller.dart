@@ -121,7 +121,6 @@ class HomeController extends GetxController {
   }
 
   void toPosts(String title, String tieuDeKD) {
-    Get.toNamed(Get.currentRoute + Routes.LIST_POST,
-        arguments: {'title': title, 'tieuDeKD': tieuDeKD});
+    Get.toNamed(Routes.LIST_POST, arguments: {'title': title, 'tieuDeKD': tieuDeKD});
   }
 }

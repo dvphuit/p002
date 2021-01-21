@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'app/di/dependencies_injection.dart';
 import 'app/routes/app_pages.dart';
 import 'core/theme/theme.dart';
-import 'core/theme/theme_service.dart';
 
 void main() async {
   await DependenciesInjection.init();
@@ -17,8 +16,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'KuApp',
       theme: Themes.light,
-      darkTheme: Themes.dark,
-      themeMode: Get.find<ThemeService>().theme,
+      darkTheme: Themes.light,
+      themeMode: ThemeMode.light,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.pages,
     );
