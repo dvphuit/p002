@@ -12,9 +12,7 @@ class PostResponse {
   factory PostResponse.fromJson(Map<String, dynamic> json) => PostResponse(
         status: json["status"] == null ? null : json["status"],
         resultCode: json["resultCode"] == null ? null : json["resultCode"],
-        data: json["data"] == null
-            ? null
-            : List<PostModel>.from(json["data"].map((x) => PostModel.fromJson(x))),
+        data: json["data"] == null ? null : List<PostModel>.from(json["data"].map((x) => PostModel.fromJson(x))),
       );
 }
 
@@ -50,6 +48,7 @@ class PostModel {
     this.noiBat,
     this.tinhTrang,
     this.status,
+    this.alias,
   });
 
   String id;
@@ -82,6 +81,7 @@ class PostModel {
   String noiBat;
   String tinhTrang;
   String status;
+  String alias;
 
   factory PostModel.fromJson(Map<String, dynamic> json) => PostModel(
         id: json["id"] == null ? null : json["id"],
@@ -114,5 +114,6 @@ class PostModel {
         noiBat: json["NoiBat"] == null ? null : json["NoiBat"],
         tinhTrang: json["TinhTrang"] == null ? null : json["TinhTrang"],
         status: json["Status"] == null ? null : json["Status"],
+        alias: json["Alias"] == null ? null : json["Alias"],
       );
 }

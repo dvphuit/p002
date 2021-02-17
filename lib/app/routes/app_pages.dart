@@ -62,14 +62,12 @@ class AppPages {
         name: Routes.LIST_POST,
         page: () => ListPostPage(),
         binding: ListPostBinding(),
-        transition: Transition.cupertino,
-        children: [
-          GetPage(
-            name: Routes.POST_DETAIL,
-            page: () => PostDetailPage(),
-            transition: Transition.cupertino,
-          )
-        ]),
+        transition: Transition.cupertino),
+    GetPage(
+      name: Routes.POST_DETAIL,
+      page: () => PostDetailPage(),
+      transition: Transition.cupertino,
+    ),
     GetPage(
       name: Routes.LOGIN,
       page: () => LoginPage(),

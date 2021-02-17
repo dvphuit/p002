@@ -37,31 +37,118 @@ const policy = '''
 </div>
 ''';
 
+const about = '''
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="aboutus-page">
+<div class="bl-banner">
+<div class="container-fluid">
+<div class="bl-banner-info">
+<div class="text-center">
+<h2 class="title">Th&ocirc;ng Điệp Nh&agrave; S&aacute;ng Lập</h2>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<p>Sau qu&atilde;ng thời gian d&agrave;i quan s&aacute;t, trải nghiệm những bất cập trong thị trường bất động sản Việt Nam, c&ugrave;ng với kinh nghiệm c&oacute; được sau th&agrave;nh c&ocirc;ng của 3 c&ocirc;ng ty tại Hoa Kỳ v&agrave; Việt Nam, t&ocirc;i quyết định th&agrave;nh lập BATDONGSAN. BATDONGSAN kh&ocirc;ng chỉ giải quyết những vấn đề về t&iacute;nh minh bạch v&agrave; hiệu suất vận h&agrave;nh của thị trường, m&agrave; BATDONGSAN c&ograve;n gi&uacute;p kh&aacute;ch h&agrave;ng c&oacute; được trải nghiệm kh&aacute;c biệt trong giao dịch bất động sản khi ch&uacute;ng t&ocirc;i &aacute;p dụng c&ocirc;ng nghệ hiện đại v&agrave;o tất cả tiến tr&igrave;nh giao dịch.</p>
+<p>Với những lợi thế về c&ocirc;ng nghệ v&agrave; giải ph&aacute;p hữu &iacute;ch, BATDONGSAN đang từng bước khẳng định thương hiệu tr&ecirc;n thị trường Việt Nam v&agrave; đ&atilde; chuẩn bị sẵn s&agrave;ng cho sự tăng trưởng đột ph&aacute; v&agrave;o thời gian tới khi ch&uacute;ng t&ocirc;i mở rộng phạm vi hoạt động sang khu vực Đ&ocirc;ng Nam &Aacute;.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bl-aboutus-1">
+<div class="container-fluid">
+<div class="bl-bg">
+<div class="text-center">
+<h2 class="title">Giới Thiệu Về BATDONGSAN</h2>
+</div>
+<div class="block-1">
+<div class="text-center">
+<h3 class="title">BATDONGSAN - Bất Động Sản An To&agrave;n</h3>
+</div>
+<div class="div-text">
+<p>BATDONGSAN l&agrave; c&ocirc;ng ty Dịch vụ Bất động sản, hoạt động tr&ecirc;n nền tảng c&ocirc;ng nghệ hiện đại; tổng hợp nguồn dữ liệu khổng lồ về to&agrave;n bộ thị trường mua &ndash; b&aacute;n bất động sản; cung cấp th&ocirc;ng tin gi&aacute; trị v&agrave; hữu &iacute;ch, li&ecirc;n tục cập nhật c&aacute;c phản hồi từ giao dịch mua &ndash; b&aacute;n thực tế; l&agrave; yếu tố quan trọng h&agrave;ng đầu để đưa ra quyết định đ&uacute;ng đắn khi mua &ndash; b&aacute;n nh&agrave;.</p>
+<p>BATDONGSAN với bề d&agrave;y kinh nghiệm v&agrave; đội ngũ luật sư, chuy&ecirc;n gia t&agrave;i ch&iacute;nh chuy&ecirc;n nghiệp, đi đầu trong c&aacute;c dịch vụ bất động sản:</p>
+<ul>
+<li>Thẩm định gi&aacute; mua &ndash; b&aacute;n hiện tại; cung cấp th&ocirc;ng tin quy hoạch v&agrave; đ&aacute;nh gi&aacute; tiềm năng, cơ hội tăng gi&aacute; trong tương lai</li>
+<li>Mua - b&aacute;n nh&agrave; trọn g&oacute;i nhanh gọn, thực hiện to&agrave;n bộ thủ tục ph&aacute;p l&yacute;, cam kết an to&agrave;n</li>
+<li>Tư vấn t&agrave;i ch&iacute;nh vay mua nh&agrave;</li>
+<li>Giải quyết vướng mắc v&agrave; ho&agrave;n thiện hồ sơ ph&aacute;p l&yacute;</li>
+</ul>
+<p>BATDONGSAN với 30 Trung t&acirc;m Giao dịch trực tiếp, c&ugrave;ng h&agrave;ng trăm chuy&ecirc;n vi&ecirc;n giao dịch bao phủ khắp c&aacute;c địa b&agrave;n quận, huyện; am hiểu s&acirc;u sắc từng khu vực: vị tr&iacute;, giao th&ocirc;ng, tiện &iacute;ch, m&ocirc;i trường sống&hellip; để tư vấn đầy đủ về ưu điểm của nh&agrave; b&aacute;n, ph&ugrave; hợp với y&ecirc;u cầu người mua.</p>
+<p>BATDONGSAN sở hữu lượng sản phẩm bất động sản đ&atilde; được thẩm định 6 Hạng mục, an to&agrave;n ph&aacute;p l&yacute;; v&agrave; nguồn kh&aacute;ch mua dồi d&agrave;o nhất thị trường; gi&uacute;p kh&aacute;ch h&agrave;ng c&oacute; nhiều lựa chọn bất động sản ph&ugrave; hợp, s&agrave;ng lọc kh&aacute;ch mua tiềm năng, từ đ&oacute; thực hiện giao dịch mua &ndash; b&aacute;n nhanh gọn, ch&iacute;nh x&aacute;c, an to&agrave;n.</p>
+</div>
+</div>
+<div class="block-2">
+<div class="text-center">
+<h3 class="title">Dịch Vụ Bất Động Sản BATDONGSAN</h3>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<ul>
+<li class="title title-1">B&aacute;n Nhanh</li>
+</ul>
+</div>
+<div class="col-sm-4">
+<ul>
+<li class="title title-2">Mua Đ&uacute;ng</li>
+</ul>
+</div>
+<div class="col-sm-4">
+<ul>
+<li class="title title-3">Cam Kết An To&agrave;n</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bl-aboutus-3">
+<div class="container-fluid">
+<div class="text-center">
+<h2 class="title">Hệ Thống Dịch Vụ BATDONGSAN</h2>
+</div>
+<div class="row">
+<div class="col-sm-3">
+<ul>
+<li>B&aacute;n Nh&agrave; Nhanh</li>
+</ul>
+</div>
+<div class="col-sm-3">
+<ul>
+<li>Mua Nh&agrave; An To&agrave;n</li>
+</ul>
+</div>
+<div class="col-sm-3">
+<ul>
+<li>Cộng Đồng M&ocirc;i Giới</li>
+</ul>
+</div>
+<ul>
+<li class="col-sm-3">Dịch Vụ Bất Động Sản</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+''';
+
 class TermOfUsePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = Get.arguments;
-    // if (GetPlatform.isAndroid) WebView.platform = SurfaceAndroidWebView();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppText.Term_of_use),
+        title: Text(args['type'] == 'policy' ? AppText.Term_of_use : AppText.About),
       ),
       body: Column(
         children: [
           Expanded(
             child: WebViewPlugin(
-              htmlData: policy,
-              // initialUrl: 'about:blank',
-              // onWebViewCreated: (WebViewController webViewController) {
-              //   webViewController.loadUrl(Uri.dataFromString(
-              //     policy,
-              //     mimeType: 'text/html',
-              //     encoding: Encoding.getByName('utf-8'),
-              //   ).toString());
-              // },
+              htmlData: args['type'] == 'policy' ? policy : about,
             ),
           ),
-          args == 'view' ? Container() : AcceptButton()
+          args['view'] ? Container() : AcceptButton()
         ],
       ),
     );

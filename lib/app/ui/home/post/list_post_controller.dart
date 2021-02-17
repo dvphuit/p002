@@ -17,7 +17,7 @@ class ListPostController extends GetxController {
     super.onReady();
   }
 
-  void gotoDetail(PostModel item){
-    Get.toNamed(Get.currentRoute + Routes.POST_DETAIL, arguments: item);
+  void gotoDetail(PostModel item) {
+    Get.toNamed(Routes.POST_DETAIL, arguments: {'type': 'post', 'item': item});
   }
 }

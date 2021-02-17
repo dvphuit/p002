@@ -28,7 +28,9 @@ class SupportPage extends GetView<SupportController> {
         ListTile(
           leading: Icon(Icons.info_outline),
           title: Text('Giới thiệu'),
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(Routes.TERM_OF_USE, arguments: {'view': true, 'type': 'about'});
+          },
         ),
         ListTile(
           leading: Icon(Icons.contact_mail_rounded),
@@ -41,7 +43,7 @@ class SupportPage extends GetView<SupportController> {
           leading: Icon(Icons.policy_rounded),
           title: Text('Chính sách sử dụng'),
           onTap: () {
-            Get.toNamed(Routes.TERM_OF_USE, arguments: 'view');
+            Get.toNamed(Routes.TERM_OF_USE, arguments: {'view': true, 'type': 'policy'});
           },
         ),
       ],
@@ -54,11 +56,11 @@ class SupportPage extends GetView<SupportController> {
       content: RichText(
           textAlign: TextAlign.center,
           text: new TextSpan(
-            text: 'Ms Châu\n',
+            text: 'Mr.Viet\n',
             style: TextStyle(color: Colors.black),
             children: <TextSpan>[
               new TextSpan(
-                text: '0901 193 193\n',
+                text: '0901 111 222\n',
                 style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
               ),
               new TextSpan(

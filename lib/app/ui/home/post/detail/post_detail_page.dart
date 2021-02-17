@@ -8,13 +8,15 @@ import 'package:web_view_plugin/web_view_plugin.dart';
 class PostDetailPage extends GetView<PostDetailController> {
   @override
   Widget build(BuildContext context) {
-    PostModel args = Get.arguments;
+    final args = Get.arguments;
+    final type = args['type'];
+    PostModel item = args['item'];
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.tieuDe),
+        title: Text(item.tieuDe),
       ),
       body: WebViewPlugin(
-        url: Api.getDetail(args.tieuDeKd),
+        url: type == 'post' ? Api.getDetail(item.tieuDeKd) : Api.getNewsDetail(item.alias),
       ),
     );
   }

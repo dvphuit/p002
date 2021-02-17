@@ -10,7 +10,7 @@ class AppText {
   static const String Login = "Đăng nhập";
   static const String Support = "HỖ TRỢ 24H";
   static const String Promo = "KHUYẾN MÃI";
-  static const String About = "GIỚI THIỆU";
+  static const String About = "Giới thiệu";
   static const String Contact = "LIÊN HỆ";
 }
 
@@ -18,4 +18,5 @@ class Api {
   static const baseUrl = 'https://padvn.co/API/Website.php';
 
   static String getDetail(String tieuDeKD) => 'https://padvn.co/API/trangchitiet.php?TieuDeKD=$tieuDeKD';
+  static String getNewsDetail(String tieuDeKD) => 'https://padvn.co/API/chitiettin.php?TieuDeKD=$tieuDeKD';
 }
